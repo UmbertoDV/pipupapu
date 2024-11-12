@@ -24,7 +24,7 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column; /* Posiziona le scritte verticalmente */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 2;
@@ -32,17 +32,17 @@ body {
 
 /* Stile per la scritta "Clicca per una sorpresa!" */
 #subtitle {
-    font-size: 2rem;
+    font-size: 2vw; /* Dimensione relativa allo schermo */
     color: #fff;
     font-family: 'Comic Sans MS', cursive;
     text-align: center;
     text-shadow: 0 0 10px #000;
-    margin-bottom: 20px; /* Spazio tra il sottotitolo e il titolo */
+    margin-bottom: 2vh;
 }
 
 /* Stile per la scritta "PIPUPAPU" */
 #title {
-    font-size: 8rem;
+    font-size: 8vw; /* Dimensione relativa allo schermo */
     color: #fff;
     font-family: 'Comic Sans MS', cursive;
     text-align: center;
@@ -64,4 +64,28 @@ body {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+/* Media Query per schermi piccoli (smartphone) */
+@media (max-width: 600px) {
+    #subtitle {
+        font-size: 4vw;
+        margin-bottom: 3vh;
+    }
+
+    #title {
+        font-size: 12vw;
+    }
+}
+
+/* Media Query per schermi molto piccoli (schermi più piccoli di 400px) */
+@media (max-width: 400px) {
+    #subtitle {
+        font-size: 5vw;
+        margin-bottom: 4vh;
+    }
+
+    #title {
+        font-size: 14vw;
+    }
 }

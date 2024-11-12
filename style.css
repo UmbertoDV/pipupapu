@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(120deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    background-size: 400% 400%;
+    animation: rainbowShift 30s ease infinite;
+    cursor: url('devi-cursor.png') 16 16, default;
+}
+
+/* Container per la scritta "PIPUPAPU", centrata nella pagina */
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+/* Stile per la scritta "PIPUPAPU" */
+#title {
+    font-size: 8rem;
+    color: #fff;
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+    text-shadow: 0 0 20px #000;
+}
+
+/* Stile per il canvas dei fuochi d'artificio */
+#fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+/* Animazione graduale dell'arcobaleno */
+@keyframes rainbowShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

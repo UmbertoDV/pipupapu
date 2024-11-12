@@ -16,7 +16,7 @@ body {
     cursor: url('devi-cursor.png') 16 16, default;
 }
 
-/* Container per la scritta "PIPUPAPU", centrata nella pagina */
+/* Container per le scritte, centrato nella pagina */
 .container {
     position: absolute;
     top: 0;
@@ -24,9 +24,20 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column; /* Posiziona le scritte verticalmente */
     justify-content: center;
     align-items: center;
     z-index: 2;
+}
+
+/* Stile per la scritta "Clicca per una sorpresa!" */
+#subtitle {
+    font-size: 2rem;
+    color: #fff;
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+    text-shadow: 0 0 10px #000;
+    margin-bottom: 20px; /* Spazio tra il sottotitolo e il titolo */
 }
 
 /* Stile per la scritta "PIPUPAPU" */

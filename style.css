@@ -16,47 +16,65 @@ body {
     cursor: url('devi-cursor.png') 16 16, default;
 }
 
-/* Container per le scritte, centrato nella pagina */
+/* Contenitore centrato */
 .container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    z-index: 2;
 }
+
 
 /* Stile per la scritta "Clicca per una sorpresa!" */
 #subtitle {
-    font-size: 2vw; /* Dimensione relativa allo schermo */
+    font-size: 2rem;
     color: #fff;
     font-family: 'Comic Sans MS', cursive;
     text-align: center;
     text-shadow: 0 0 10px #000;
-    margin-bottom: 2vh;
+    margin-bottom: 20px;
 }
 
 /* Stile per la scritta "PIPUPAPU" */
 #title {
-    font-size: 8vw; /* Dimensione relativa allo schermo */
+    font-size: 8rem;
     color: #fff;
     font-family: 'Comic Sans MS', cursive;
     text-align: center;
     text-shadow: 0 0 20px #000;
 }
 
-/* Stile per il canvas dei fuochi d'artificio */
-#fireworks {
+
+/* Stile per l'immagine sorpresa */
+#surprise-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
+    width: 200px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 3;
+}
+
+/* Animazione di rotazione (spin) */
+.spin {
+    animation: spin 3s ease forwards;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(360deg);
+        opacity: 1;
+    }
 }
 
 /* Animazione graduale dell'arcobaleno */
@@ -66,26 +84,26 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Media Query per schermi piccoli (smartphone) */
-@media (max-width: 600px) {
-    #subtitle {
-        font-size: 4vw;
-        margin-bottom: 3vh;
-    }
-
-    #title {
-        font-size: 12vw;
-    }
+/* Contenitore per i fuochi d'artificio */
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
 }
 
-/* Media Query per schermi molto piccoli (schermi più piccoli di 400px) */
-@media (max-width: 400px) {
-    #subtitle {
-        font-size: 5vw;
-        margin-bottom: 4vh;
-    }
-
-    #title {
-        font-size: 14vw;
-    }
+/* Stile per le particelle dei fuochi d'artificio */
+.particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    opacity: 0.9;
+    pointer-events: none;
 }
